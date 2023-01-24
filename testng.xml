@@ -5,6 +5,8 @@
         <parameter name="Device" value="Device_Nexus5"/>
         <parameter name="UserName" value="satya.qa@yopmail.com"/>
         <parameter name="Password" value="abcd1234"/>
+        <parameter name="LeagueName" value="NHL"/>
+        <parameter name="SubTab" value="STANDINGS"/>
         <classes>
             <class name="src.test.TestCases.LeagueTest"/>
         </classes>
@@ -13,6 +15,8 @@
         <parameter name="Device" value="Device_Nexus5"/>
         <parameter name="UserName" value="satya.qa@yopmail.com"/>
         <parameter name="Password" value="abcd1234"/>
+        <parameter name="LeagueName" value="MLB"/>
+        <parameter name="SubTab" value="LEADERS"/>
         <classes>
             <class name="src.test.TestCases.LeagueTest"/>
         </classes>

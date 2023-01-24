@@ -7,14 +7,15 @@ import src.main.pagefactory.PageFactory;
 
 public class LeagueTest extends BaseTest {
 
-    @Parameters({"UserName", "Password"})
+    @Parameters({"UserName", "Password","LeagueName","SubTab"})
     @Test
-    public void verifyLeagueTest(String userName, String password) {
+    public void verifyLeagueTest(String userName, String password,String leagueName, String subTab) {
         PageFactory pageFactory = new PageFactory();
         pageFactory.getLoginPageObject().loginToApp(userName, password);
-        pageFactory.getLeaguesPageObject().verifyLeaguesPage("NHL", "STANDINGS");
+        pageFactory.getLeaguesPageObject().verifyLeaguesPage(leagueName,subTab);
         pageFactory.getReUsable().navigateBack();
         pageFactory.getReUsable().verifyLeaguesPage();
         pageFactory.getSettingsPageObject().logout();
     }
+
 }
