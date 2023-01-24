@@ -1,17 +1,13 @@
 package src.main.pagefactory.pageobjects.reusable;
 
-import com.beust.jcommander.internal.Lists;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import src.main.common.BaseTest;
-
 import java.time.Duration;
-import java.util.*;
 
 public class ReUsable extends BaseTest {
 
@@ -94,5 +90,4 @@ public class ReUsable extends BaseTest {
         LEFT,
         RIGHT;
     }
-
 }

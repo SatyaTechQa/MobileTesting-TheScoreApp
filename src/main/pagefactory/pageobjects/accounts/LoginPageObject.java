@@ -1,6 +1,5 @@
 package src.main.pagefactory.pageobjects.accounts;
 
-import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import src.main.common.BaseTest;
 
