@@ -22,6 +22,10 @@ Add the android device capabilities under **device_capabilities.json** file for 
 
 Add the appium server url in **appium_server_urls.json** to start appium session on given port.
 
+# Build Installation 
+
+Install TheScore app from playstore(I have installed the latest build from playstore).
+
 # TestNG Implementation
 
 **BaseTest.java** is responsible to perform pre-requisite steps and post execution steps.
