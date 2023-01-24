@@ -16,6 +16,9 @@ Implemented parameterized approach to run the test for multiple sets of test dat
 
 To clone the repository use **git clone https://github.com/SatyaTechQa/TheScoreApp-Assignment.git**
 
+Once Project is cloned Successfully,if any errors in class names in testng.xml file update project to sources root directory.
+( Right click on Project > Mark Directory as > Select Sources Root )
+
 # Adding Android Device & Appium Server Url in Configs
 
 Add the android device capabilities under **device_capabilities.json** file for the device you wish to execute.
@@ -25,6 +28,12 @@ Add the appium server url in **appium_server_urls.json** to start appium session
 # Build Installation 
 
 Install TheScore app from playstore(I have installed the latest build from playstore).
+ 
+--> Once App is installed setup the app till below :
+
+
+<img width="332" alt="image" src="https://user-images.githubusercontent.com/123192187/214395207-677bc6a6-5846-46a6-b1a1-9ee1a1935809.png">
+
 
 # TestNG Implementation
 
@@ -74,7 +83,7 @@ The class path to **LeagueTest.java** is **TheScoreApp-Assignment/src/test/TestC
 
 # Adding tests in testng.xml
 
-Currently one test is added to verify Leagues with working test data. Repeated the same test to twice to parameterized approach.
+Currently one test is added to verify Leagues/SubTab with working test data.
 However, user can add mutliple tests(as class names/package names) with different sets of test data to execute the tests.
 
 # Parameterized approach
@@ -84,6 +93,8 @@ I have followed the parameterized approach,by passing data to below variables.
     1. Device
     2. UserName
     3. Password
+    4. LeagueName
+    5. SubTab
     
 The parameters should be provided in testng.xml 
 
