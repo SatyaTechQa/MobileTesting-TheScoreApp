@@ -1,0 +1,15 @@
+
+{
+  "Device_RedmiNote10LITE": {
+    "capabilities": {
+      "udid": "emulator-5554",
+      "platformVersion": "10.0",
+      "appPackage": "com.fivemobile.thescore",
+      "appActivity": "com.fivemobile.thescore.ui.MainActivity",
+      "deviceName": "Redmi Note 10 LITE",
+      "noReset": "true",
+      "fullReset": "false",
+      "automationName": "UiAutomator2"
+    }
+  }
+}

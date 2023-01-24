@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2">
+    <test name="Test 1">
+        <parameter name="Device" value="Device_RedmiNote10LITE"/>
+        <parameter name="UserName" value="satya.qa@yopmail.com"/>
+        <parameter name="Password" value="abcd1234"/>
+        <classes>
+            <class name="src.test.TestCases.LeagueTest"/>
+        </classes>
+    </test>
+    <test name="Test 2">
+        <parameter name="Device" value="Device_RedmiNote10LITE"/>
+        <parameter name="UserName" value="satya.qa@yopmail.com"/>
+        <parameter name="Password" value="abcd1234"/>
+        <classes>
+            <class name="src.test.TestCases.LeagueTest"/>
+        </classes>
+    </test>
+
+    <!--<listeners>
+        <listener class-name="TestListener.Listener"></listener>
+    </listeners>-->
+</suite>
