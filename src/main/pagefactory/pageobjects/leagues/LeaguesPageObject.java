@@ -2,6 +2,7 @@ package src.main.pagefactory.pageobjects.leagues;
 
 import org.openqa.selenium.By;
 import src.main.common.BaseTest;
+import src.main.pagefactory.pageobjects.reusable.ReUsable;
 
 public class LeaguesPageObject extends BaseTest {
 
@@ -16,6 +17,7 @@ public class LeaguesPageObject extends BaseTest {
         try {
             driver.findElement(By.xpath(LEAGUES_ICON_XPATH)).click();
             System.out.println("Clicked on Leagues button successfully");
+            ReUsable.swipeScreen(ReUsable.Direction.UP);
             driver.findElement(By.xpath(LEAGUE_XPATH1 + leagueName + LEAGUE_XPATH2)).click();
             System.out.println("Clicked on " + leagueName + " successfully");
             driver.findElement(By.id(DATA_ID)).isDisplayed();
