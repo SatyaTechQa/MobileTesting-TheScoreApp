@@ -1,6 +1,7 @@
 package src.main.common;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -12,9 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import src.main.constants.Constants;
-import src.main.core.ExtentManager;
 import src.main.core.CapsAndDriverOpts;
-import src.main.core.ExtentTestManager;
 import src.main.core.utils.ReadWriteProperties;
 import src.main.core.utils.TimeAndDate;
 import java.io.File;
@@ -35,6 +34,7 @@ public class BaseTest {
     protected static AppiumDriverLocalService appiumDriverLocalService;
     protected static AppiumServiceBuilder appiumServiceBuilder;
     static ExtentReports extent;
+    static ExtentTest test;
     protected static WebDriver driver = null;
 
     @BeforeSuite
@@ -52,7 +52,6 @@ public class BaseTest {
                 .get(reportLocation + "/" + "TestReport_" + dateTime + ".html").toString();
 
         createReportDirs();
-        extent = ExtentManager.getReporter(getTestReportFilename());
 
         if (ReadWriteProperties.props.getProperty("appium.service").equalsIgnoreCase("local")) {
             appiumDriverLocalService = null;
@@ -75,8 +74,9 @@ public class BaseTest {
     @BeforeClass
     public void beforeClass(String device, ITestResult result){
         try{
+
             this.getAndroidDriver(device);
-            driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -84,12 +84,21 @@ public class BaseTest {
 
     @BeforeMethod
     public void beforeMethod(Method m){
-        ExtentTestManager.startTest(extent, m.getName(), "FeatureTest");
+        System.out.println("[INFO] Before method---------------------------");
+        extent = new ExtentReports(reportFileFullPath);
+        test = extent.startTest(m.getName());
     }
 
     @AfterMethod
     public void afterMethod(){
-        //ExtentTestManager.endTest();
+        System.out.println("[INFO] After Method------------------------");
+
+    }
+
+    @AfterClass
+    public void afterClass(){
+        extent.endTest(getTest());
+        extent.flush();
     }
 
     @AfterSuite(alwaysRun = true)
@@ -229,4 +238,11 @@ public class BaseTest {
         }
     }
 
+    public static ExtentTest getTest() {
+        return test;
+    }
+
+    public static void setTest(ExtentTest test) {
+        BaseTest.test = test;
+    }
 }

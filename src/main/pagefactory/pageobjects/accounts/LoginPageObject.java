@@ -1,5 +1,6 @@
 package src.main.pagefactory.pageobjects.accounts;
 
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import src.main.common.BaseTest;
 
@@ -22,10 +23,11 @@ public class LoginPageObject extends BaseTest {
             driver.findElement(By.id(EMAIL_TEXT_ID)).sendKeys(userName);
             driver.findElement(By.id(PASSWORD_TEXT_ID)).sendKeys(password);
             driver.findElement(By.id(LOGIN_BUTTON_ID)).click();
-            System.out.println("User has been logged in successfully");
+            getTest().log(LogStatus.PASS, "User has been logged in successfully");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error occurred while login to app..");
+            getTest().log(LogStatus.FAIL, "User has been logged in successfully");
         }
     }
 }

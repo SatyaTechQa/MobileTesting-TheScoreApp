@@ -1,5 +1,6 @@
 package src.main.pagefactory.pageobjects.reusable;
 
+import com.relevantcodes.extentreports.LogStatus;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -18,9 +19,11 @@ public class ReUsable extends BaseTest {
         try {
             driver.findElement(By.xpath(BACK_BUTTON_XPATH)).click();
             System.out.println("Clicked on Back Button Successfully");
+            getTest().log(LogStatus.PASS,"Clicked on Back button successfully");
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error occurred while clicking back button..");
+            getTest().log(LogStatus.FAIL,"Clicked on Back button successfully");
         }
     }
 

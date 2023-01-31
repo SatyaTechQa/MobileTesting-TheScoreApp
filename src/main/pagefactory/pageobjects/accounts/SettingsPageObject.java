@@ -1,5 +1,6 @@
 package src.main.pagefactory.pageobjects.accounts;
 
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import src.main.common.BaseTest;
 import src.main.pagefactory.pageobjects.reusable.ReUsable;
@@ -18,10 +19,11 @@ public class SettingsPageObject extends BaseTest {
             driver.findElement(By.xpath(SETTINGS_SECTION_XPATH)).click();
             driver.findElement(By.xpath(LOGOUT_BUTTON_XPATH)).click();
             driver.findElement(By.xpath(LOGOUT_POPUP_BUTTON_XPATH)).click();
-            System.out.println("User is logged out from the device successfully");
+            getTest().log(LogStatus.PASS, "User is logged out from the device successfully");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error occurred while logout from the app..");
+            getTest().log(LogStatus.FAIL, "User is logged out from the device successfully");
         }
     }
 }
